@@ -8,9 +8,13 @@ from bibliotheque import (
     sauvegarder_bibliotheque
 )
 
-# Charger les données une seule fois au début
-with open("bibliotheque.json", "r", encoding="utf-8") as f:
-    bibliotheque = json.load(f)
+# Charger les données de la bibliotheque existante une seule fois au début
+
+try:
+    with open("bibliotheque.json", "r", encoding="utf-8") as f:
+        bibliotheque = json.load(f)
+except (FileNotFoundError, json.JSONDecodeError):
+    bibliotheque = {"livres": []}
 
 
 def main():
@@ -21,7 +25,7 @@ def main():
         if choix == "1":
             afficher_tous_les_livres()
         elif choix == "2":
-            ajouter_livre()
+            ajouter_livre(bibliotheque)
         elif choix == "8":
             sauvegarder_bibliotheque(bibliotheque)
             print("Données sauvegardées avec succées.")

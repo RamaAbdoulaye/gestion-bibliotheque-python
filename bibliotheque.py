@@ -49,23 +49,15 @@ def afficher_tous_les_livres():
         print()
 
 
-def ajouter_livre():
+def ajouter_livre(bibliotheque):
     """Fonction pour ajouter un livre à la bibliothèque"""
-    chemin_fichier = "bibliotheque.json"
-    # Charger la bibliotheque existante
-    try:
-        with open(chemin_fichier, "r", encoding="utf-8") as f:
-            bibliotheque = json.load(f)
-    except (FileNotFoundError, json.JSONDecodeError):
-        bibliotheque = {"livres": []}
-
     # Demander les informations à l'utilisateur
     titre = input("Titre du livre : ")
     auteur = input("Auteur du livre : ")
     try:
         annee = int(input("Année de publication : "))
     except ValueError:
-        print("⚠️ Année invalide. Livre non ajouté.")
+        print("Année invalide. Livre non ajouté.")
         return
 
     # Déterminer le prochain ID automatiquement
@@ -73,6 +65,7 @@ def ajouter_livre():
         dernier_id = bibliotheque["livres"][-1]["ID"]
     else:
         dernier_id = 0
+
     nouveau_livre = {
         "ID": dernier_id + 1,
         "Titre": titre,
@@ -83,10 +76,10 @@ def ajouter_livre():
     }
     # Ajouter et sauvegarder
     bibliotheque["livres"].append(nouveau_livre)
-    with open(chemin_fichier, "w", encoding="utf-8") as f:
-        json.dump(bibliotheque, f, ensure_ascii=False, indent=4)
+    """ with open(chemin_fichier, "w", encoding="utf-8") as f:
+        json.dump(bibliotheque, f, ensure_ascii=False, indent=4) """
 
-    print(f"✅ Livre « {titre} » ajouté avec succès.")
+    print(f" Livre « {titre} » ajouté avec succès.")
 
 
 def sauvegarder_bibliotheque(bibliotheque):

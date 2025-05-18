@@ -47,6 +47,14 @@
             "Annee": 1943,
             "Lu": false,
             "Note": null
+        },
+        {
+            "ID": 7,
+            "Titre": "Gabby Dolhouse",
+            "Auteur": "Kadija",
+            "Annee": 2025,
+            "Lu": false,
+            "Note": null
         }
     ]
 }
