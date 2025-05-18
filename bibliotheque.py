@@ -1,5 +1,6 @@
 """ Un module pour gerer les fonctions de la bibliotheque"""
 import json
+import os
 
 
 def afficher_menu():
@@ -17,11 +18,27 @@ def afficher_menu():
 
 
 def afficher_tous_les_livres():
-    """Fonction pour afficher tous les livres prsents dans la bibliotheques"""
-    # Ouvrier et lire le fichier JSON
-    with open("bibliotheque.json", "r", encoding="utf-8") as f:
-        bibliotheque = json.load(f)
-        # Afficher les informations du livre
+    """Fonction pour afficher tous les livres prsents dans la bibliotheque"""
+
+    fichier_json = "bibliotheque.json"
+    if not os.path.exists(fichier_json):
+        print("Le fichier bibliotheque.json est introuvable.")
+        return
+
+    with open(fichier_json, "r", encoding="utf-8") as f:
+        try:
+            bibliotheque = json.load(f)
+        except json.JSONDecodeError:
+            print("Erreur de lecture du fichier JSON.")
+            return
+
+    # On essaye de savoir si la cle livres existes bien dans le fichier JSON
+    # avant de le parcourir
+    if "livres" not in bibliotheque:
+        print(" Cle 'livres' absente dans le fichier JSON.")
+        return
+
+    # Afficher les informations du livre
     for livre in bibliotheque['livres']:
         print(f"ID: {livre['ID']}")
         print(f"Titre: {livre['Titre']}")
@@ -32,6 +49,47 @@ def afficher_tous_les_livres():
         print()
 
 
+def ajouter_livre():
+    """Fonction pour ajouter un livre à la bibliothèque"""
+    chemin_fichier = "bibliotheque.json"
+    # Charger la bibliotheque existante
+    try:
+        with open(chemin_fichier, "r", encoding="utf-8") as f:
+            bibliotheque = json.load(f)
+    except (FileNotFoundError, json.JSONDecodeError):
+        bibliotheque = {"livres": []}
+
+    # Demander les informations à l'utilisateur
+    titre = input("Titre du livre : ")
+    auteur = input("Auteur du livre : ")
+    try:
+        annee = int(input("Année de publication : "))
+    except ValueError:
+        print("⚠️ Année invalide. Livre non ajouté.")
+        return
+
+    # Déterminer le prochain ID automatiquement
+    if bibliotheque["livres"]:
+        dernier_id = bibliotheque["livres"][-1]["ID"]
+    else:
+        dernier_id = 0
+    nouveau_livre = {
+        "ID": dernier_id + 1,
+        "Titre": titre,
+        "Auteur": auteur,
+        "Annee": annee,
+        "Lu": False,
+        "Note": None
+    }
+    # Ajouter et sauvegarder
+    bibliotheque["livres"].append(nouveau_livre)
+    with open(chemin_fichier, "w", encoding="utf-8") as f:
+        json.dump(bibliotheque, f, ensure_ascii=False, indent=4)
+
+    print(f"✅ Livre « {titre} » ajouté avec succès.")
+
+
 # ----- Appel de fonction -----
 afficher_menu()
 afficher_tous_les_livres()
+ajouter_livre()
