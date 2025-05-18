@@ -141,3 +141,45 @@ def marquer_comme_lu(bibliotheque):
 
     if not trouve:
         print("Aucun livre trouvé avec cet ID.")
+
+
+def afficher_livres_par_etat(bibliotheque):
+    """Affiche les livres lus ou non lus selon le choix de l'utilisateur."""
+    choix = input(
+        "Voulez-vous afficher les livres (1) lus ou (2) non lus ? Entrez 1 ou 2 : ")
+
+    if choix == "1":
+        etat = "True"
+        print("\nLivres lus :")
+    elif choix == "2":
+        etat = False
+        print("\nLivres non lus :")
+    else:
+        print("Choix invalide.")
+        return
+
+    # Créer une liste vide pour stocker les livres filtrés
+    livres_filtres = []
+
+    # Parcourir tous les livres dans la bibliothèque
+    for livre in bibliotheque['livres']:
+        # Vérifier si l'état du livre correspond à l'état demandé (lu ou non lu)
+        if livre['Lu'] == etat:
+            # Si oui, ajouter ce livre à la liste des livres filtrés
+            livres_filtres.append(livre)
+
+    if not livres_filtres:
+        print("Aucun livre trouvé pour ce filtre.")
+        return
+
+    for livre in livres_filtres:
+        print(f" ID: {livre['ID']}")
+        print(f" Titre: {livre['Titre']}")
+        print(f" Auteur: {livre['Auteur']}")
+        print(f" Année: {livre['Annee']}")
+        print(f" Lu: {livre['Lu']}")
+        print(f" Note: {livre.get('Note', 'None')}")
+        commentaire = livre.get("Commentaire")
+        if commentaire and commentaire.strip():
+            print(f" Commentaire: {commentaire}")
+        print("-" * 40)

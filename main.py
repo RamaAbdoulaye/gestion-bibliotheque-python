@@ -5,7 +5,8 @@ from bibliotheque import (
     ajouter_livre,
     supprimer_livre,
     rechercher_livre_par_mot_cle,
-    marquer_comme_lu
+    marquer_comme_lu,
+    afficher_livres_par_etat
 )
 
 from helpers.utils import sauvegarder_bibliotheque, charger_bibliotheque, afficher_menu
@@ -29,6 +30,8 @@ def main():
             rechercher_livre_par_mot_cle(bibliotheque)
         elif choix == "5":
             marquer_comme_lu(bibliotheque)
+        elif choix == "6":
+            afficher_livres_par_etat(bibliotheque)
         elif choix == "8":
             sauvegarder_bibliotheque(bibliotheque)
             print(" Au revoir !")
