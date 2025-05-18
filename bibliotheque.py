@@ -5,6 +5,9 @@ from helpers.utils import generer_id_unique
 
 def afficher_tous_les_livres(bibliotheque):
     """Fonction pour afficher tous les livres presents dans la bibliotheque"""
+    if not bibliotheque["livres"]:
+        print("Aucun livre dans la bibliothèque.")
+        return
 
     # Afficher les informations du livre
     for livre in bibliotheque['livres']:
@@ -14,6 +17,10 @@ def afficher_tous_les_livres(bibliotheque):
         print(f"Annee: {livre['Annee']}")
         print(f"Lu: {livre['Lu']}")
         print(f"Note: {livre['Note']}")
+
+        commentaire = livre.get("Commentaire")
+        if commentaire and commentaire.strip():
+            print(f"Commentaire: {commentaire}")
         print("-" * 40)
 
 
