@@ -4,24 +4,27 @@ from helpers.utils import generer_id_unique
 
 
 def afficher_tous_les_livres(bibliotheque):
-    """Fonction pour afficher tous les livres presents dans la bibliotheque"""
-    if not bibliotheque["livres"]:
-        print("Aucun livre dans la bibliothèque.")
+    """
+    Fonction pour afficher tous les livres présents dans la bibliothèque 
+    avec un affichage soigné.
+    """
+    if not bibliotheque.get("livres"):
+        print("Aucun livre dans la bibliothèque.\n")
         return
 
-    # Afficher les informations du livre
+    print("\nListe des livres dans la bibliothèque :\n")
     for livre in bibliotheque['livres']:
-        print(f"ID: {livre['ID']}")
-        print(f"Titre: {livre['Titre']}")
-        print(f"Auteur: {livre['Auteur']}")
-        print(f"Annee: {livre['Annee']}")
-        print(f"Lu: {livre['Lu']}")
-        print(f"Note: {livre['Note']}")
-
+        print(f"ID         : {livre['ID']}")
+        print(f"Titre      : {livre['Titre']}")
+        print(f"Auteur     : {livre['Auteur']}")
+        print(f"Année      : {livre['Annee']}")
+        print(f"Lu         : {livre['Lu']}")
+        print(f"Note       : {livre['Note']}")
         commentaire = livre.get("Commentaire")
         if commentaire and commentaire.strip():
             print(f"Commentaire: {commentaire}")
-        print("-" * 40)
+        print("─" * 50)
+    print()
 
 
 def ajouter_livre(bibliotheque):
