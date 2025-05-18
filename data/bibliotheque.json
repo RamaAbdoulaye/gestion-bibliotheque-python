@@ -5,8 +5,9 @@
             "Titre": "Nations Negres et Cultures",
             "Auteur": "Cheik Anta Diop",
             "Annee": 1954,
-            "Lu": false,
-            "Note": null
+            "Lu": "True",
+            "Note": "8",
+            "Commentaire": "un tres bon livre"
         },
         {
             "ID": 2,
@@ -50,7 +51,7 @@
         },
         {
             "ID": 8,
-            "Titre": "Dora l'exploratrice ",
+            "Titre": "Dora l'exploratrice et le petit Diego",
             "Auteur": "Rama Diallo ",
             "Annee": 2003,
             "Lu": false,

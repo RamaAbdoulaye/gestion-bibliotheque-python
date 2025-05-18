@@ -3,20 +3,6 @@
 from helpers.utils import generer_id_unique
 
 
-def afficher_menu():
-    """Fonction pour afficher le menu"""
-    print("\t  - Gestion biblliotheque Ramatoulaye Diallo -")
-    print("\t | 1. Afficher tous les livres                |")
-    print("\t | 2. Ajouter un livre                        |")
-    print("\t | 3. Supprimer un livre                      |")
-    print("\t | 4. Rechercher un livre comme lu            |")
-    print("\t | 5. Marquer un livre comme lu               |")
-    print("\t | 6. Afficher livres lus non lus             |")
-    print("\t | 7. Trier les livres                        |")
-    print("\t | 8. Quitter                                 |")
-    print("\t ---------------------------------------------")
-
-
 def afficher_tous_les_livres(bibliotheque):
     """Fonction pour afficher tous les livres presents dans la bibliotheque"""
 
@@ -28,7 +14,7 @@ def afficher_tous_les_livres(bibliotheque):
         print(f"Annee: {livre['Annee']}")
         print(f"Lu: {livre['Lu']}")
         print(f"Note: {livre['Note']}")
-        print()
+        print("-" * 40)
 
 
 def ajouter_livre(bibliotheque):
@@ -83,3 +69,68 @@ def supprimer_livre(bibliotheque):
             return
 
     print("Aucun livre trouvé avec cet identifiant.")
+
+
+def rechercher_livre_par_mot_cle(bibliotheque):
+    """
+    Recherche les livres contenant un mot-clé dans le titre 
+    ou le nom de l'auteur.
+    """
+    mot_cle = input("Entrez un mot-clé pour la recherche : ").lower()
+    resultats = []
+
+    for livre in bibliotheque['livres']:
+        titre = livre['Titre'].lower()
+        auteur = livre['Auteur'].lower()
+        if mot_cle in titre or mot_cle in auteur:
+            resultats.append(livre)
+
+    if resultats:
+        print(f"\n {len(resultats)} livre(s) trouvé(s) :\n")
+        for livre in resultats:
+            print(f"ID: {livre['ID']}")
+            print(f"Titre: {livre['Titre']}")
+            print(f"Auteur: {livre['Auteur']}")
+            print(f"Année: {livre['Annee']}")
+            print(f"Lu: {livre['Lu']}")
+            print(f"Note: {livre['Note']}")
+            print("-" * 40)
+    else:
+        print("Aucun livre trouvé avec ce mot-clé.")
+
+
+def marquer_comme_lu(bibliotheque):
+    """Marque un livre comme lu, ajoute une note et un commentaire."""
+    try:
+        identifiant = int(input("Entrez l'ID du livre à marquer comme lu : "))
+    except ValueError:
+        print("L'ID doit être un nombre.")
+        return
+
+    trouve = False
+
+    for livre in bibliotheque['livres']:
+        if livre['ID'] == identifiant:
+            trouve = True
+            if livre['Lu'] == "True":
+                print("Ce livre est déjà marqué comme lu.")
+            else:
+                livre['Lu'] = "True"
+                note = input(
+                    "Entrez une note sur 10 (laisser vide si aucune) : ").strip()
+                if note:
+                    while not note.isdigit() or not (0 <= int(note) <= 10):
+                        note = input(
+                            "Veuillez entrer un nombre entre 0 et 10 : ").strip()
+                    livre['Note'] = note
+                else:
+                    livre['Note'] = "None"
+
+                commentaire = input(
+                    "Souhaitez-vous ajouter un commentaire ? (Entrée pour ignorer) : ").strip()
+                livre['Commentaire'] = commentaire if commentaire else "Aucun commentaire"
+                print("Livre marqué comme lu avec succès.")
+            break
+
+    if not trouve:
+        print("Aucun livre trouvé avec cet ID.")

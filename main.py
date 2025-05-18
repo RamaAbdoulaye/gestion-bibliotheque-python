@@ -1,13 +1,14 @@
 # Point d'entree du programme ou de l'application
 
 from bibliotheque import (
-    afficher_menu,
     afficher_tous_les_livres,
     ajouter_livre,
-    supprimer_livre
+    supprimer_livre,
+    rechercher_livre_par_mot_cle,
+    marquer_comme_lu
 )
 
-from helpers.utils import sauvegarder_bibliotheque, charger_bibliotheque
+from helpers.utils import sauvegarder_bibliotheque, charger_bibliotheque, afficher_menu
 
 
 def main():
@@ -24,6 +25,10 @@ def main():
             ajouter_livre(bibliotheque)
         elif choix == "3":
             supprimer_livre(bibliotheque)
+        elif choix == "4":
+            rechercher_livre_par_mot_cle(bibliotheque)
+        elif choix == "5":
+            marquer_comme_lu(bibliotheque)
         elif choix == "8":
             sauvegarder_bibliotheque(bibliotheque)
             print(" Au revoir !")
