@@ -55,6 +55,22 @@
             "Annee": 2025,
             "Lu": false,
             "Note": null
+        },
+        {
+            "ID": 8,
+            "Titre": "Dora l'exploratrice ",
+            "Auteur": "Rama Diallo ",
+            "Annee": 2003,
+            "Lu": false,
+            "Note": null
+        },
+        {
+            "ID": 9,
+            "Titre": "Nombres Pairs",
+            "Auteur": "Alpha Bah ",
+            "Annee": 2025,
+            "Lu": false,
+            "Note": null
         }
     ]
 }

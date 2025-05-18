@@ -18,3 +18,21 @@ def sauvegarder_bibliotheque(bibliotheque):
     with open(FICHIER_DATA, "w", encoding="utf-8") as f:
         json.dump(bibliotheque, f, indent=4, ensure_ascii=False)
     print("Données sauvegardées avec succées.")
+
+
+def generer_id_unique(bibliotheque):
+    """
+    Génère un ID unique pour un nouveau livre.
+    Si la bibliothèque est vide, retourne 1.
+    """
+    livres = bibliotheque["livres"]
+
+    if not livres:
+        return 1
+
+    max_id = 0
+    for livre in livres:
+        if livre["ID"] > max_id:
+            max_id = livre["ID"]
+
+    return max_id + 1

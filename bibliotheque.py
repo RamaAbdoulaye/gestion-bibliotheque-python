@@ -1,5 +1,7 @@
 """ Un module pour gerer les fonctions de la bibliotheque"""
 
+from helpers.utils import generer_id_unique
+
 
 def afficher_menu():
     """Fonction pour afficher le menu"""
@@ -31,6 +33,8 @@ def afficher_tous_les_livres(bibliotheque):
 
 def ajouter_livre(bibliotheque):
     """Fonction pour ajouter un livre à la bibliothèque"""
+    print("Ajout d'un nouveau livre")
+
     # Demander les informations à l'utilisateur
     titre = input("Titre du livre : ")
     auteur = input("Auteur du livre : ")
@@ -40,14 +44,10 @@ def ajouter_livre(bibliotheque):
         print("Année invalide. Livre non ajouté.")
         return
 
-    # Déterminer le prochain ID automatiquement
-    if bibliotheque["livres"]:
-        dernier_id = bibliotheque["livres"][-1]["ID"]
-    else:
-        dernier_id = 0
+    nouvel_id = generer_id_unique(bibliotheque)
 
     nouveau_livre = {
-        "ID": dernier_id + 1,
+        "ID": nouvel_id,
         "Titre": titre,
         "Auteur": auteur,
         "Annee": annee,
@@ -56,7 +56,4 @@ def ajouter_livre(bibliotheque):
     }
     # Ajouter et sauvegarder
     bibliotheque["livres"].append(nouveau_livre)
-    """ with open(chemin_fichier, "w", encoding="utf-8") as f:
-        json.dump(bibliotheque, f, ensure_ascii=False, indent=4) """
-
     print(f" Livre « {titre} » ajouté avec succès.")
