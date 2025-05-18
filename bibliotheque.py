@@ -20,12 +20,12 @@ def afficher_menu():
 def afficher_tous_les_livres():
     """Fonction pour afficher tous les livres prsents dans la bibliotheque"""
 
-    fichier_json = "bibliotheque.json"
-    if not os.path.exists(fichier_json):
+    chemin_fichier = "bibliotheque.json"
+    if not os.path.exists(chemin_fichier):
         print("Le fichier bibliotheque.json est introuvable.")
         return
 
-    with open(fichier_json, "r", encoding="utf-8") as f:
+    with open(chemin_fichier, "r", encoding="utf-8") as f:
         try:
             bibliotheque = json.load(f)
         except json.JSONDecodeError:
@@ -87,9 +87,3 @@ def ajouter_livre():
         json.dump(bibliotheque, f, ensure_ascii=False, indent=4)
 
     print(f"✅ Livre « {titre} » ajouté avec succès.")
-
-
-# ----- Appel de fonction -----
-afficher_menu()
-afficher_tous_les_livres()
-ajouter_livre()
