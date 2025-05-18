@@ -87,3 +87,9 @@ def ajouter_livre():
         json.dump(bibliotheque, f, ensure_ascii=False, indent=4)
 
     print(f"✅ Livre « {titre} » ajouté avec succès.")
+
+
+def sauvegarder_bibliotheque(bibliotheque):
+    """Fonction pour sauvegarder les données dans le fichier JSON"""
+    with open("bibliotheque.json", "w", encoding="utf-8") as f:
+        json.dump(bibliotheque, f, indent=4, ensure_ascii=False)
