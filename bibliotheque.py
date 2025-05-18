@@ -183,3 +183,47 @@ def afficher_livres_par_etat(bibliotheque):
         if commentaire and commentaire.strip():
             print(f" Commentaire: {commentaire}")
         print("-" * 40)
+
+
+def trier_livres(bibliotheque):
+    """
+    Trie les livres par année, auteur ou note selon le choix de l'utilisateur.
+    """
+    print("Choisissez le critère de tri :")
+    print("1. Année")
+    print("2. Auteur")
+    print("3. Note")
+    choix = input("Entrez 1, 2 ou 3 : ")
+
+    if choix == "1":
+        # Tri par année (du plus ancien au plus récent)
+        # trie la liste de disctionnaire and la fonction sorted
+        livres_tries = sorted(
+            bibliotheque['livres'], key=lambda livre: livre['Annee'])
+        print("\nLivres triés par année :")
+    elif choix == "2":
+        # Tri par auteur (ordre alphabétique)
+        livres_tries = sorted(
+            bibliotheque['livres'], key=lambda livre: livre['Auteur'].lower())
+        print("\nLivres triés par auteur :")
+    elif choix == "3":
+        # Tri par note (du plus petit au plus grand)
+        # On convertit la note en int pour trier correctement, et on gère l'absence de note avec 0
+        livres_tries = sorted(
+            bibliotheque['livres'],
+            key=lambda livre: int(livre.get('Note', '0')) if livre.get(
+                'Note', '').isdigit() else 0,
+            reverse=True  # si tu veux du plus grand au plus petit, sinon enlève reverse=True
+        )
+        print("\nLivres triés par note :")
+    else:
+        print("Choix invalide.")
+        return
+
+    for livre in livres_tries:
+        print(f" ID: {livre['ID']}")
+        print(f" Titre: {livre['Titre']}")
+        print(f" Auteur: {livre['Auteur']}")
+        print(f" Année: {livre['Annee']}")
+        print(f" Note: {livre.get('Note', 'Aucune')}")
+        print("-" * 40)
