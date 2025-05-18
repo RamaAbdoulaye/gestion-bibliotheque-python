@@ -45,10 +45,10 @@ python main.py
 Le menu interactif vous guidera pour gérer votre bibliothèque.
 
 ## Organisation des fichiers
-- main.py : point d'entrée du programme
-- bibliotheque.py : fonctions liées à la gestion des livres
-- helpers/utility.py : fonctions utilitaires (ex : génération d'identifiants uniques)
-- data/bibliotheque.json : fichier JSON contenant les données des livres
+- **main.py** : point d'entrée du programme
+- **bibliotheque.py** : fonctions liées à la gestion des livres
+- **helpers/utility.py** : fonctions utilitaires (ex : génération d'identifiants uniques)
+- **data/bibliotheque.json** : fichier JSON contenant les données des livres
 
 ## Lien vers le repository
 https://github.com/RamaAbdoulaye/bibliotheque-rama-diallo.git
