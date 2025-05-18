@@ -3,7 +3,8 @@
 from bibliotheque import (
     afficher_menu,
     afficher_tous_les_livres,
-    ajouter_livre
+    ajouter_livre,
+    supprimer_livre
 )
 
 from helpers.utils import sauvegarder_bibliotheque, charger_bibliotheque
@@ -21,6 +22,8 @@ def main():
             afficher_tous_les_livres(bibliotheque)
         elif choix == "2":
             ajouter_livre(bibliotheque)
+        elif choix == "3":
+            supprimer_livre(bibliotheque)
         elif choix == "8":
             sauvegarder_bibliotheque(bibliotheque)
             print(" Au revoir !")

@@ -57,3 +57,29 @@ def ajouter_livre(bibliotheque):
     # Ajouter et sauvegarder
     bibliotheque["livres"].append(nouveau_livre)
     print(f" Livre « {titre} » ajouté avec succès.")
+
+
+def supprimer_livre(bibliotheque):
+    """Supprime un livre par ID avec confirmation de l'utilisateur"""
+    try:
+        livre_id = int(input("Entrez l'identifiant du livre à supprimer : "))
+    except ValueError:
+        print(" Identifiant invalide.")
+        return
+
+    for livre in bibliotheque["livres"]:
+        if livre["ID"] == livre_id:
+            print("\n Livre trouvé :")
+            print(f"Titre : {livre['Titre']}")
+            print(f"Auteur : {livre['Auteur']}")
+            confirmation = input(
+                "Voulez-vous vraiment supprimer ce livre ? (oui/non) : ").strip().lower()
+
+            if confirmation == "oui":
+                bibliotheque["livres"].remove(livre)
+                print(" Livre supprimé avec succès.")
+            else:
+                print(" Suppression annulée.")
+            return
+
+    print("Aucun livre trouvé avec cet identifiant.")
