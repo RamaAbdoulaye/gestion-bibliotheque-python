@@ -51,7 +51,9 @@ Le menu interactif vous guidera pour gérer votre bibliothèque.
 - **data/bibliotheque.json** : fichier JSON contenant les données des livres
 
 ## Lien vers le repository
+```bash
 https://github.com/RamaAbdoulaye/bibliotheque-rama-diallo.git
+```
 
 Auteur
 Ramatoulaye Diallo, 
