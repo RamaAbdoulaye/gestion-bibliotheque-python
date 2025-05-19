@@ -11,7 +11,7 @@ def afficher_menu():
 ╔══════════════════════════════════════════════════════════════╗
 ║        Gestion bibliothèque Ramatoulaye Diallo               ║
 ║                        Collège Boréal                        ║
-║                     Année scolaire : 2024-2025               ║
+║                     Année scolaire : 2025-2026               ║
 ╠══════════════════════════════════════════════════════════════╣
 ║ 1. Afficher tous les livres                                  ║
 ║ 2. Ajouter un livre                                          ║

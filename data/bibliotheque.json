@@ -34,14 +34,6 @@
             "Note": null
         },
         {
-            "ID": 5,
-            "Titre": "Avatar",
-            "Auteur": "James Cameroon",
-            "Annee": 2013,
-            "Lu": false,
-            "Note": null
-        },
-        {
             "ID": 6,
             "Titre": "Le petit Prince",
             "Auteur": "Antoine de Saint-Exupéry",
@@ -54,6 +46,14 @@
             "Titre": "Dora l'exploratrice et le petit Diego",
             "Auteur": "Rama Diallo ",
             "Annee": 2003,
+            "Lu": false,
+            "Note": null
+        },
+        {
+            "ID": 9,
+            "Titre": "le Roi",
+            "Auteur": "Abdoulaye Binta Bah",
+            "Annee": 2025,
             "Lu": false,
             "Note": null
         }

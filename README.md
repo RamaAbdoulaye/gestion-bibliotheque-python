@@ -1,7 +1,7 @@
 # Gestion Bibliothèque - Ramatoulaye Diallo
 
 **Collège Boréal**  
-**Année scolaire : 2024-2025**
+**Année scolaire : 2025-2026**
 
 Ce projet est une application Python simple pour gérer une bibliothèque personnelle.  
 Vous pouvez afficher les livres, ajouter, supprimer, rechercher, marquer comme lu, filtrer et trier les livres.
@@ -57,4 +57,4 @@ https://github.com/RamaAbdoulaye/bibliotheque-rama-diallo.git
 
 Auteur
 Ramatoulaye Diallo, 
-Collège Boréal — Année scolaire 2024-2025
+Collège Boréal — Année scolaire 2025-2026
