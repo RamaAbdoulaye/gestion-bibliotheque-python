@@ -3,10 +3,9 @@
 **Collège Boréal**  
 **Année scolaire : 2025-2026**
 
-Ce projet est une application Python simple pour gérer une bibliothèque personnelle.  
-Vous pouvez afficher les livres, ajouter, supprimer, rechercher, marquer comme lu, filtrer et trier les livres.
+# Gestion d’une bibliothèque personnelle 
 
----
+Ce projet est une application console développée en Python qui permet de gérer une collection de livres personnels.
 
 ## Fonctionnalités principales
 
@@ -18,12 +17,33 @@ Vous pouvez afficher les livres, ajouter, supprimer, rechercher, marquer comme l
 - Afficher les livres lus ou non lus
 - Trier les livres par année, auteur ou note
 
-Autres 
-- Afficher le menu principal 
-- Charger les données de la bibliotheque depuis le fichier JSON
-- Fonction pour sauvegarder les données dans le fichier JSON
-- Génèrer un ID unique pour un nouveau livre
+### Autres fonctionnalités
 
+- Afficher le menu principal 
+- Charger les données de la bibliothèque depuis le fichier JSON
+- Sauvegarder les données dans le fichier JSON
+- Générer un ID unique pour chaque nouveau livre
+
+## Structure du projet
+
+bibliotheque-rama-diallo/
+│
+├── helpers/ # Fonctions utilitaires
+│ └── utils.py
+│
+├── data/ # Fichier JSON contenant les livres
+│ └── bibliotheque.json
+│
+├── bibliotheque.py # Programme principal
+└── README.md # Description du projet
+## Technologies utilisées
+
+- Python 3
+- JSON
+
+```bash
+https://www.linkedin.com/in/ramatoulaye-diallo-bah-3385a229a
+```
 ---
 
 ## Installation 
@@ -58,3 +78,6 @@ https://github.com/RamaAbdoulaye/bibliotheque-rama-diallo.git
 Auteur
 Ramatoulaye Diallo, 
 Collège Boréal — Année scolaire 2025-2026
+```bash
+Mon profil LinkedIn: https://www.linkedin.com/in/ramatoulaye-diallo-bah-3385a229a/
+```
