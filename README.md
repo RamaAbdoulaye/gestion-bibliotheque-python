@@ -26,25 +26,20 @@ Ce projet est une application console développée en Python qui permet de gére
 
 ## Structure du projet
 
-- * bibliotheque-rama-diallo/
-- * │
-- * ├── helpers/ # Fonctions utilitaires
-- * │ └── utils.py
-- * │
-- * ├── data/ # Fichier JSON contenant les livres
-- * │ └── bibliotheque.json
-- * │
-- * ├── bibliotheque.py # Programme principal
-- * └── README.md # Description du projet
+* bibliotheque-rama-diallo/
+* │
+* ├── helpers/ # Fonctions utilitaires
+* │ └── utils.py
+* │
+* ├── data/ # Fichier JSON contenant les livres
+* │ └── bibliotheque.json
+* │
+* ├── bibliotheque.py # Programme principal
+* └── README.md # Description du projet
 ## Technologies utilisées
 
 - Python 3
 - JSON
-
-```bash
-https://www.linkedin.com/in/ramatoulaye-diallo-bah-3385a229a
-```
----
 
 ## Installation 
 
@@ -78,7 +73,7 @@ https://github.com/RamaAbdoulaye/bibliotheque-rama-diallo.git
 ## Auteur
 Ramatoulaye Diallo, 
 Collège Boréal — Année scolaire 2025-2026
-Mon profil Linkedin :
+**Mon profil Linkedin :**
 ```bash
 https://www.linkedin.com/in/ramatoulaye-diallo-bah-3385a229a/
 ```
