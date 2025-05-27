@@ -73,7 +73,7 @@ https://github.com/RamaAbdoulaye/bibliotheque-rama-diallo.git
 ## Auteur
 Ramatoulaye Diallo, 
 Collège Boréal — Année scolaire 2025-2026
-**Mon profil Linkedin :**
+- **Mon profil Linkedin :**
 ```bash
 https://www.linkedin.com/in/ramatoulaye-diallo-bah-3385a229a/
 ```
